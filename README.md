@@ -1,5 +1,10 @@
 # bookwurm
 
+> [!CAUTION]
+> This is a very young, and very unstable project that was built for personal use.
+> The index schema is not stable, nor how things are indexed, or anything else,
+> if you **really** wan't to use this, do so with caution.
+
 bookwurm is a super simple document index and search interface. It was built for my needs and my needs alone, but everyone is more than welcome to use it if they so see fit.
 
 
