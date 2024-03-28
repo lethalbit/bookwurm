@@ -196,11 +196,15 @@ class IndexAction(BookwurmAction):
 
 	def _make_meili_index(self, meili: Client) -> Index:
 		res = meili.create_index('bookwurm', {
-			"primaryKey": "id"
+			'primaryKey': 'id'
 		})
 
 		task = meili.wait_for_task(res.task_uid)
 		if task.error is not None:
 			log.error(f'Failed to create index: {task.error["message"]}')
 
-		return meili.get_index('bookwurm')
+		idx = meili.get_index('bookwurm')
+		idx.update_filterable_attributes([
+			'id', 'title', 'type', 'pages'
+		])
+		return idx
